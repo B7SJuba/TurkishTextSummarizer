@@ -5,7 +5,7 @@ This project is a web application built using Flask, providing a summarization A
 The application allows users to submit text and get a summarized version in response. 
 
 ## Requirements
-Before running this application, make sure to install the required dependencies and have Python installed.
+Before running this application, make sure to install the required dependencies from `requirements.txt` and have Python installed.
 
 ## Execution 
 After executing `app.py` open your browser and head to http://127.0.0.1:8000/
