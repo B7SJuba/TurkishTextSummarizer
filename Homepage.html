@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turkish Text Summarizer</title>
+
+    <style>
+        body {
+            font-family: serif;
+            background-color: #1d2a35;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto; /* Enable vertical scrolling for overflow */
+            max-height: 200vh;
+        }
+
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .large-textbox {
+            font-family: serif;
+            font-size: 16px;
+            background-color: #c4c4c4;
+            color: black; /* Changing font color */
+            width: 600px; /* Width of the box */
+            height: 300px; /* Height of the box */
+            text-align: left;
+        }
+
+        .output-box {
+            font-family: serif;
+            font-size: 16px;
+            background-color: #c4c4c4;
+            color: black;
+            width: 600px; /* Width of the output box */
+            height: 300px; /* Height of the output box */
+            text-align: left;
+
+        }
+        .button {
+            background-color: #052b69;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Adding a transition for a smoother effect */
+        }
+
+        .button:hover {
+            background-color: #15499b; /* Changing the background color on hover */
+        }
+
+        .button:active {
+            padding: 13px 30px; /* Adding padding on active/clicked state to create a buffer effect */
+        }
+        .figures-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%; /* Ensuring the figures take the full width */
+        margin-top: 10px;
+        }
+
+       .figure {
+        width: 90%;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="box-container">
+        <form method="POST" class ="box-container">
+
+        <h1>Input text</h1>
+        <textarea class="large-textbox" name="inputText"
+                  placeholder="Enter your input text here, you can move the slider left for shorter summary and right for longer text">{{ inputText }}</textarea>
+
+             <button type="submit" value="Submit" class="button">Summarize</button>
+
+            <input type="range" id="slider" name="number" min="1" max="10" value="5" step="1" orient="horizontal">
+            <output for="slider" id="selectedNumber">50%</output>
+        </form>
+        <script>
+    // Getting the slider element
+    var slider = document.getElementById("slider");
+
+    // Getting the output element
+    var selectedNumber = document.getElementById("selectedNumber");
+     // Adding an input event listener to the slider
+    slider.addEventListener("input", function() {
+    var percentage = ((slider.value - 1) / 9) * 90 + 10; // Convert value to percentage
+    selectedNumber.textContent = percentage + "%";
+    });
+</script>
+
+
+        <h1>Summarized text</h1>
+        <textarea class="large-textbox" name="output_text" readonly>{{ output_text }}</textarea>
+         <p>Input text Length: {{ inLength }} &nbsp;&nbsp;&nbsp;&nbsp; Summarized text length: {{ outLength }}</p>
+
+    </div>
+
+    <div class="figures-container">
+        <div class="figure">
+            {{ html_fig1|safe }}
+        </div>
+
+        <div class="figure">
+            {{ html_fig2|safe }}
+        </div>
+
+        <div class="figure">
+            {{ html_fig3|safe }}
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
