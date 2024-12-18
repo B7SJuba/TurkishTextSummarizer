@@ -1,11 +1,11 @@
 #Importing libraries
 import numpy as np
-import pandas as pd
-import os
-import tensorflow as tf
-import torch
-import spacy
-import nltk
+#import pandas as pd
+#import os
+#import tensorflow as tf
+#import torch
+#import spacy
+#import nltk
 import mpld3
 import re
 import networkx as nx
@@ -13,9 +13,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from spacy.lang.tr.stop_words import STOP_WORDS #The stop words for turkish language
 from nltk.tokenize import sent_tokenize  # We need nltk sentence tokenizer to tokenize sentences
-from gensim.models import Word2Vec
-from sklearn.model_selection import train_test_split
-from scipy import spatial
+#from gensim.models import Word2Vec
+#from sklearn.model_selection import train_test_split
+#from scipy import spatial
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 #Some libraries are not used because I tried using another approach but deducted that code to a text file, kept the libraries just in case.
