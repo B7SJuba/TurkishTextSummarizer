@@ -9,3 +9,6 @@ Before running this application, make sure to install the required dependencies 
 
 ## Execution 
 After executing `app.py` open your browser and head to http://127.0.0.1:8000/
+
+## License
+This project is licensed under the MIT License. Feel free to use and modify the code as needed.
